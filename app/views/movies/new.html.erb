@@ -1,0 +1,17 @@
+<h1>Agregar Nueva Película</h1>
+
+<%= form_with model: @movie, local: true do |form| %>
+  <div>
+    <%= form.label :title, "Título" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :genre, "Género" %>
+    <%= form.text_field :genre %>
+  </div>
+
+  <div>
+    <%= form.submit "Crear Película" %>
+  </div>
+<% end %>

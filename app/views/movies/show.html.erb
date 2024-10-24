@@ -1,0 +1,13 @@
+<h1><%= @movie.title %></h1>
+
+<p><strong>Género:</strong> <%= @movie.genre %></p>
+
+<% if @movie.clients.any? %>
+  <p><strong>Arrendada por:</strong> <%= @movie.clients.map(&:name).join(", ") %></p>
+<% else %>
+  <p><strong>Estado:</strong> Disponible</p>
+<% end %>
+
+<%= link_to 'Editar', edit_movie_path(@movie), class: 'btn btn-primary' %>
+<%= link_to 'Eliminar', @movie, method: :delete, data: { confirm: '¿Estás seguro de que quieres eliminar esta película?' }, class: 'btn btn-danger' %>
+<%= link_to 'Volver a la lista', movies_path, class: 'btn btn-secondary' %>

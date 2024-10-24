@@ -1,0 +1,22 @@
+<h1>Arrendar Película: <%= @movie.title %></h1>
+
+<%= form_with(model: @movie, local: true) do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title, readonly: true %>
+  </div>
+
+  <div>
+    <%= form.label :genre %>
+    <%= form.text_field :genre, readonly: true %>
+  </div>
+
+  <div>
+    <%= form.label "Arrendar a Cliente" %>
+    <%= form.collection_select :client_ids, Client.all, :id, :name, prompt: "Seleccionar Cliente", include_hidden: false %>
+  </div>
+
+  <div>
+    <%= form.submit "Arrendar Película", class: "btn btn-primary" %>
+  </div>
+<% end %>

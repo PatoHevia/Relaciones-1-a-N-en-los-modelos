@@ -1,0 +1,18 @@
+<%= form_with(model: @movie, local: true) do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :genre, class: "form-label" %>
+    <%= form.text_field :genre, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label "Asignar Cliente", class: "form-label" %>
+    <%= form.collection_select :client_ids, Client.all, :id, :name, { prompt: "Selecciona un cliente" }, { class: "form-select" } %>
+  </div>
+
+  <%= form.submit "Guardar", class: "btn btn-primary" %>
+<% end %>
